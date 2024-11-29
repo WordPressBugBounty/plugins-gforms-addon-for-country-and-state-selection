@@ -3,12 +3,12 @@ Contributors: coder426
 Donate link: https://hirewebxperts.com/donate/
 Tags: Gravity form, form, gf
 Requires at least: 4.9.10
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 8.1
 Stable tag: 1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-GF tested up to: 2.7.3
+GF tested up to: 2.8.18
 
 == Description ==
 
