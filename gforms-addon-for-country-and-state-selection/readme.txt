@@ -3,9 +3,9 @@ Contributors: coder426
 Donate link: https://hirewebxperts.com/donate/
 Tags: Gravity form, form, gf
 Requires at least: 4.9.10
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 8.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GF tested up to: 2.8.18
@@ -32,7 +32,7 @@ https://www.youtube.com/watch?v=WtctxrU4zr4
 
 The plugin is simple to install:
 
- * Download gforms-addon-for-country-and-state-selection.1.0.zip
+ * Download gforms-addon-for-country-and-state-selection.1.1.zip
  * Unzip
  * Upload gforms-addon-for-country-and-state-selection directory to your /wp-content/plugins directory
  * Go to the plugin menu page and activate the plugin.
@@ -52,4 +52,7 @@ The plugin is simple to install:
 
 == Changelog ==
 
-= 1.0  - 24/Nov/2021 = 
+= 1.1 - 17/Apr/2025 =
+- Minor bug fixed
+
+= 1.0 - 24/Nov/2021 = 

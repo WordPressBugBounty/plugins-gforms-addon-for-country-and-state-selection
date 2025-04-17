@@ -57,27 +57,44 @@
             }        
          
             $newcountrys = array_shift($newcountry);
-            ksort($newcountry);
+            // ksort($newcountry);
             
-            $country_option = "";
-            $country_option .= "<option value=''>Empty (no choices selected)</option>";
-            $bolean = false;
-            $arr = array();
-            if($country_request == 'country'){
-                foreach($newcountry as $countryname => $val_country){
-                    $country_option .= "<option value='{$countryname}'>{$countryname}</option>";
-                }
-            }else{
-                ksort($newcountry[$country_request]);
+            // $country_option = "";
+            // $country_option .= "<option value=''>Empty (no choices selected)</option>";
+            // $bolean = false;
+            // $arr = array();
+            // if($country_request == 'country'){
+            //     foreach($newcountry as $countryname => $val_country){
+            //         $country_option .= "<option value='{$countryname}'>{$countryname}</option>";
+            //     }
+            // }else{
+            //     ksort($newcountry[$country_request]);
                
-                foreach($newcountry[$country_request] as $countryname => $val_country){
-                    if($val_country == $state_request){
-                        $country_option .= "<option value='{$val_country}' selected>{$val_country}</option>";
-                    }
-                    $country_option .= "<option value='{$val_country}'>{$val_country}</option>";
-                }
+            //     foreach($newcountry[$country_request] as $countryname => $val_country){
+            //         if($val_country == $state_request){
+            //             $country_option .= "<option value='{$val_country}' selected>{$val_country}</option>";
+            //         }
+            //         $country_option .= "<option value='{$val_country}'>{$val_country}</option>";
+            //     }
+            // }
+            ksort($newcountry);
+
+        $country_option = "<option value=''>Empty (no choices selected)</option>";
+        $bolean = false;
+        $arr = array();
+
+        if ($country_request === 'country') {
+            foreach ($newcountry as $countryname => $val_country) {
+                $country_option .= "<option value='{$countryname}'>{$countryname}</option>";
             }
-            
+        } elseif (!empty($country_request) && isset($newcountry[$country_request])) {
+            ksort($newcountry[$country_request]);
+            foreach ($newcountry[$country_request] as $val_country) {
+                $selected = ($val_country === $state_request) ? 'selected' : '';
+                $country_option .= "<option value='{$val_country}' {$selected}>{$val_country}</option>";
+            }
+        }
+
             array_push($arr,$country_option);
             array_push($arr,$bolean);
             echo json_encode($arr);
@@ -86,3 +103,4 @@
     }
     new GFCWS_Countrywisestate_Field_Ajax;
 ?>
+

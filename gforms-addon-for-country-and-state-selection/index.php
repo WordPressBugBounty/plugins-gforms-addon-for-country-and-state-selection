@@ -3,7 +3,7 @@
  * Plugin Name:	  Country and State Selection Addon for Gravity Forms
  * Plugin URI:	  https://plugins.hirewebxperts.com/
  * Description:	  Country and State Selection Addon for Gravity Forms is used to add country and state dropdown fields depending on your needs. By default, all the countries of the world appear on the country select dropdown on the form and once you select any specific country, its respective states appear in the state select dropdown. All the countries and states are already available in the addon by default. 
- * Version: 	  1.0
+ * Version: 	  1.1
  * Author: 		  Coder426
  * Author URI:	  https://hirewebxperts.com/
  * Donate link:   https://hirewebxperts.com/donate/
@@ -17,7 +17,7 @@
 if (!defined('ABSPATH')) {exit;}
 
 /* Plugin details */
-$version             =  '1.0';
+$version             =  '1.1';
 $name                =  'gforms-addon-for-country-and-state-selection';
 $dir_name            =  'gforms-addon-for-country-and-state-selection';
 $location            =  'plugins';
