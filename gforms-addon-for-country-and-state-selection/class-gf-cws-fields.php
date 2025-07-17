@@ -1,4 +1,7 @@
 <?php
+    // Ensure Gravity Forms and WordPress functions are available
+    if (!class_exists('GFForms')) require_once(ABSPATH . 'wp-content/plugins/gravityforms/gravityforms.php');
+    if (!function_exists('add_action')) require_once(ABSPATH . 'wp-includes/plugin.php');
     GFForms::include_addon_framework();
     class GFCWSAddOn extends GFAddOn{
         protected $_version = GF_CWS_VER;
@@ -19,7 +22,6 @@
             if ( $this->is_gravityforms_supported() && class_exists( 'GF_Field' ) ) {
                 require_once( GF_CWS_INC. 'class-gf-cws-admin-fields.php' );
                 require_once( GF_CWS_INC. 'functions.php' );
-                add_action( 'gform_enqueue_scripts', array($this,'gfcws_pre_init_enqueue_script'));
                 add_action( 'gform_editor_js_set_default_values' , array( $this,'gfcws_countrywisestate_group_fields' ));
             }
         }
@@ -27,7 +29,6 @@
         public function init_admin() {
             parent::init_admin();
         
-            add_action( 'admin_enqueue_scripts', array($this,'gfcws_addon_admin'));
             add_action( 'gform_editor_js', array( $this,"gfcws_input_placeholders_editor_js"));
             add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
             add_filter( 'gform_tooltips', array( $this, 'tooltips' ) );       
@@ -42,6 +43,16 @@
                 array(
                     'handle'   => 'gfcws_addon_script_js',
                     'src'      => $this->get_base_url() . '/assets/js/fields.js',
+                    'version'  => $this->_version,
+                    'deps'     => array( 'jquery' ),
+                    'callback' => array( $this, 'localize_scripts' ),
+                    'enqueue'  => array(
+                        array( 'field_types' => array( 'countrywisestate' ) ),
+                    )
+                ),
+                array(
+                    'handle'   => 'gfcws_addon_admin_js',
+                    'src'      => $this->get_base_url() . '/assets/js/admin.js',
                     'version'  => $this->_version,
                     'deps'     => array( 'jquery' ),
                     'callback' => array( $this, 'localize_scripts' ),
@@ -90,7 +101,7 @@
          */
         public function gfcws_field_advanced_settings( $position, $form_id ) {
             if ( $position == 200 ) {
-                $get_countrys = NEW GF_ADMIN_FIELDS_MODULE;    
+                $get_countrys = new GF_ADMIN_FIELDS_MODULE;    
                 ?>
                 <li class="input_class_setting field_setting">
                     <label for="field_default_value" class="section_label">
@@ -140,21 +151,6 @@
          * Include Ajax JS file in gravity form panel using hook
          * 
          * Hook : gform_enqueue_scripts
-         *
-         */
-        public function gfcws_pre_init_enqueue_script() {
-            wp_enqueue_script( GF_CWS_NAME.'-addon-script');
-            wp_register_script( GF_CWS_NAME.'-addon-script', GF_CWS_JS . 'admin.js', array('jquery'),GF_CWS_VER, true );
-            wp_localize_script( GF_CWS_NAME.'-addon-script','ajax_object',array(
-                'ajaxurl' => admin_url('admin-ajax.php'),
-                'GF_CWS_ASSETS' => plugin_dir_url(__FILE__).'assets/',
-             ));
-        }
-
-         /**
-         * Include css file in gravity form panel using hook
-         * 
-         * Hook : admin_enqueue_scripts
          *
          */
         public function gfcws_addon_admin(){
@@ -323,6 +319,16 @@
             </script>
             <?php
         }
+
+        public function localize_scripts() {
+            ?>
+            <script type="text/javascript">
+                var ajax_object = {
+                    ajaxurl: "<?php echo admin_url('admin-ajax.php'); ?>",
+                    GF_CWS_ASSETS: "<?php echo plugin_dir_url(__FILE__); ?>assets/"
+                };
+            </script>
+            <?php
+        }
     }
     GFAddOn::register( 'GFCWSAddOn' );
-?>

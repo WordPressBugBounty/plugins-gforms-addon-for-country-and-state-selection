@@ -1,42 +1,39 @@
 === Country and State Selection Addon for Gravity Forms ===
 Contributors: coder426
-Donate link: https://hirewebxperts.com/donate/
-Tags: Gravity form, form, gf
+Description: Country and State Selection Addon for Gravity Forms
+Tags: Gravity Forms, country dropdown, state dropdown, address fields, form builder, location, Australia, dynamic fields, conditional logic
 Requires at least: 4.9.10
 Tested up to: 6.8
 Requires PHP: 8.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GF tested up to: 2.8.18
 
 == Description ==
 
-Country and State Selection Addon for Gravity Forms is used to add country and state dropdown fields depending on your needs. By default, all the countries of the world appear on the country select dropdown on the form and once you select any specific country, its respective states appear in the state select dropdown. All the countries and states are already available in the addon by default. 
+Country and State Selection Addon for Gravity Forms lets you easily add dynamic country and state dropdown fields to your Gravity Forms. Instantly populate all countries of the world in a country select dropdown, and display the relevant states or provinces when a country is selected. This plugin is perfect for address fields, shipping forms, user registration, and any form that needs accurate location data. All countries and states are included by default, including Australia and its states.
 
 Watch this video to see how the plugin works:
-
 https://www.youtube.com/watch?v=WtctxrU4zr4
 
+= Key Features =
 
-= Key features of this plugin include =
-
-* Ability to add country and state fields dropdowns.
-* Ability to use either country or state dropdown.
-* Ability to set default country and state.
-* Ability to set country and state in Conditional Logic.
-* Ability to save country and state values in backend after the form submission.
-
+* Add country and state dropdown fields to any Gravity Form
+* Use either country or state dropdown independently
+* Set default country and state values
+* Use country and state in Gravity Forms Conditional Logic
+* Save country and state values in the backend after form submission
+* Fully compatible with Gravity Forms add-ons (Signature, User Registration, etc.)
+* Includes all countries and their states/provinces, including Australia
+* Optimized for performance and security
 
 == Installation ==
 
-The plugin is simple to install:
-
- * Download gforms-addon-for-country-and-state-selection.1.1.zip
- * Unzip
- * Upload gforms-addon-for-country-and-state-selection directory to your /wp-content/plugins directory
- * Go to the plugin menu page and activate the plugin.
-
+1. Download gforms-addon-for-country-and-state-selection.1.2.zip
+2. Unzip
+3. Upload the gforms-addon-for-country-and-state-selection directory to your /wp-content/plugins directory
+4. Go to the Plugins menu page and activate the plugin
 
 == Screenshots ==
 
@@ -48,9 +45,12 @@ The plugin is simple to install:
 6. Conditional Fields
 7. Fields display on Frontend
 
-
-
 == Changelog ==
+
+= 1.2 - 2025-07-15 =
+* Added Australia and its states to the country/state dropdown
+* Optimized frontend and backend code for performance and security
+* Improved compatibility with all Gravity Forms add-ons
 
 = 1.1 - 17/Apr/2025 =
 - Minor bug fixed
