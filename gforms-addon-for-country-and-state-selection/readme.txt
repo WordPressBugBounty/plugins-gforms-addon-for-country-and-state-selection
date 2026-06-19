@@ -2,13 +2,13 @@
 Contributors: coder426
 Description: Country and State Selection Addon for Gravity Forms
 Tags: Gravity Forms, country dropdown, state dropdown, address fields, form builder, location, Australia, dynamic fields, conditional logic
-Requires at least: 4.9.10
-Tested up to: 6.8
+Requires at least: 6.9.4
+Tested up to: 7.0
 Requires PHP: 8.1
 Stable tag: 1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-GF tested up to: 2.8.18
+GF tested up to: 2.10.2
 
 == Description ==
 
